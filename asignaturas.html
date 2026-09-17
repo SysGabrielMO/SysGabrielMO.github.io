@@ -16,7 +16,6 @@ permalink: /asignaturas/
     {% assign practicas = site.practicas | where: "asignatura", a.codigo | sort: "date" %}
     <section class="bloque-asignatura" id="{{ a.codigo }}">
       <h2>{{ a.nombre }}</h2>
-      <p class="bloque-descripcion">{{ a.descripcion }}</p>
 
       {% if practicas.size == 0 %}
         <p class="vacio">Todavía no hay prácticas publicadas de esta asignatura.</p>

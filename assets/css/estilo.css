@@ -119,8 +119,14 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; }
 .portada-texto {
   margin: 1.25rem 0 0;
   max-width: 44ch;
-  color: rgba(255,255,255,.76);
+  color: rgba(255,255,255,.78);
   font-size: 1.1rem;
+}
+
+.portada-texto-secundario {
+  margin-top: 0.75rem;
+  color: rgba(255,255,255,.58);
+  font-size: 0.98rem;
 }
 
 .portada-datos {
@@ -183,12 +189,16 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; }
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
   gap: 1rem;
 }
 
 .tarjeta-asignatura a {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+  min-height: 8.5rem;
   height: 100%;
   padding: 1.35rem 1.4rem;
   background: var(--superficie);
@@ -202,20 +212,14 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; }
 .tarjeta-asignatura a:hover { border-color: var(--acento); }
 
 .tarjeta-asignatura h3 {
-  margin: 0 0 0.5rem;
+  margin: 0;
   font-size: 1.02rem;
   font-weight: 600;
-}
-
-.tarjeta-asignatura p {
-  margin: 0;
-  color: var(--suave);
-  font-size: 0.9rem;
-  line-height: 1.55;
+  line-height: 1.35;
 }
 
 .tarjeta-asignatura .cuenta {
-  margin-top: 0.85rem;
+  margin: 0;
   color: var(--acento-texto);
   font-size: 0.85rem;
   font-weight: 500;
@@ -278,16 +282,9 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; }
 .bloque-asignatura { margin-bottom: 3.5rem; }
 
 .bloque-asignatura h2 {
-  margin: 0 0 0.35rem;
+  margin: 0 0 1rem;
   font-size: 1.3rem;
   font-weight: 600;
-}
-
-.bloque-descripcion {
-  margin: 0 0 1.25rem;
-  color: var(--suave);
-  font-size: 0.95rem;
-  max-width: 52ch;
 }
 
 .lista-practicas {

@@ -10,8 +10,8 @@ prácticas, edítalas allí.
 
 | Ruta | Para qué sirve |
 |---|---|
-| `_config.yml` | Título, autor, centro, curso y usuario de GitHub. |
-| `_data/asignaturas.yml` | Lista de asignaturas: código de carpeta, nombre visible y descripción. El orden de la lista es el orden en la web. |
+| `_config.yml` | Nombre, presentación, centro, curso y usuario de GitHub. Es donde se cambian los textos de la portada. |
+| `_data/asignaturas.yml` | Lista de asignaturas: código de carpeta y nombre visible. El orden de la lista es el orden en la web. |
 | `index.html` | Portada. |
 | `asignaturas.html` | Página con todas las asignaturas y sus prácticas. |
 | `_layouts/` | Plantilla base (menú y pie) y plantilla de práctica. |

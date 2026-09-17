@@ -4,8 +4,9 @@ layout: default
 
 <header class="portada">
   <div class="contenedor">
-    <h1>{{ site.titulo_sitio }}</h1>
-    <p class="portada-texto">{{ site.descripcion }}</p>
+    <h1>{{ site.title }}</h1>
+    <p class="portada-texto">{{ site.presentacion }}</p>
+    <p class="portada-texto portada-texto-secundario">{{ site.descripcion }}</p>
     <dl class="portada-datos">
       <div>
         <dt>Prácticas publicadas</dt>
@@ -37,7 +38,6 @@ layout: default
         <li class="tarjeta-asignatura">
           <a href="{{ '/asignaturas/' | relative_url }}#{{ a.codigo }}">
             <h3>{{ a.nombre }}</h3>
-            <p>{{ a.descripcion }}</p>
             <p class="cuenta">
               {% if practicas.size == 0 %}Sin prácticas todavía
               {% elsif practicas.size == 1 %}1 práctica

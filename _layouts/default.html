@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.titulo_sitio }}</title>
+  <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ site.descripcion }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
 
   <nav class="barra">
     <div class="contenedor barra-interior">
-      <a class="barra-marca" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      <a class="barra-marca" href="{{ '/' | relative_url }}">{{ site.titulo_corto }}</a>
       <ul class="barra-enlaces">
         <li><a href="{{ '/' | relative_url }}">Inicio</a></li>
         <li><a href="{{ '/asignaturas/' | relative_url }}">Asignaturas</a></li>
@@ -27,7 +27,7 @@
 
   <footer class="pie">
     <div class="contenedor pie-interior">
-      <p>{{ site.autor }} · {{ site.centro }} · Curso {{ site.curso }}</p>
+      <p>{{ site.title }} · {{ site.centro }} · Curso {{ site.curso }}</p>
       <p><a href="https://github.com/{{ site.github_usuario }}">github.com/{{ site.github_usuario }}</a></p>
     </div>
   </footer>
