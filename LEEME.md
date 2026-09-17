@@ -1,21 +1,23 @@
 # Cuaderno de prácticas
 
-Sitio estático (Jekyll + GitHub Pages) que publica las prácticas de 2º de ASIR.
+Sitio estático (Jekyll + GitHub Pages) con las prácticas de 2º de ASIR.
 
-La fuente de la verdad son los markdown de `~/Documentos/practicas`. Este
-repositorio es solo una copia publicada de ese contenido.
+**La fuente de la verdad son los markdown de `~/Documentos/practicas`.**
+Este repositorio es una copia publicada de ese contenido; no edites aquí las
+prácticas, edítalas allí.
 
 ## Estructura
 
-- `_config.yml` — título, subtítulo, autor y curso.
-- `_data/asignaturas.yml` — lista de asignaturas. `codigo` es el nombre de la
-  carpeta, `nombre` es lo que se ve en la web, y el orden de la lista es el
-  orden del índice.
-- `_practicas/<codigo>/` — una carpeta por asignatura con los markdown ya
-  preparados para publicar.
-- `_layouts/` — plantilla base y plantilla de práctica.
-- `assets/css/estilo.css` — diseño.
-- `assets/img/<codigo>/` — imágenes de las prácticas.
+| Ruta | Para qué sirve |
+|---|---|
+| `_config.yml` | Título, autor, centro, curso y usuario de GitHub. |
+| `_data/asignaturas.yml` | Lista de asignaturas: código de carpeta, nombre visible y descripción. El orden de la lista es el orden en la web. |
+| `index.html` | Portada. |
+| `asignaturas.html` | Página con todas las asignaturas y sus prácticas. |
+| `_layouts/` | Plantilla base (menú y pie) y plantilla de práctica. |
+| `_practicas/<codigo>/` | Los markdown ya preparados para publicar. |
+| `assets/css/estilo.css` | Todo el diseño. |
+| `assets/img/<codigo>/` | Imágenes de las prácticas. |
 
 ## Cabecera de cada práctica
 
@@ -26,13 +28,18 @@ Los ficheros publicados llevan delante un bloque como este:
 title: Memoria particionado debian13
 asignatura: ASO
 date: 2026-09-17
+resumen: Una o dos frases que salen en la portada.
+tags:
+  - Debian
+  - LVM
 ---
 ```
 
-- `title` sale del nombre del fichero, con los guiones convertidos en espacios.
-- `asignatura` es el código de la carpeta de origen.
-- `date` es la fecha de modificación del fichero, y marca el orden dentro de
-  la asignatura.
+- `title`: el nombre del fichero de origen, con los guiones convertidos en
+  espacios y la primera letra en mayúscula.
+- `asignatura`: el código de la carpeta de origen.
+- `date`: la fecha de modificación del fichero. Marca el orden.
+- `resumen` y `tags` son opcionales.
 
 Las imágenes se copian a `assets/img/<codigo>/` y los enlaces del markdown se
 reescriben a esa ruta.

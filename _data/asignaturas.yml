@@ -1,27 +1,35 @@
-# El orden de esta lista es el orden en que salen las asignaturas en el índice.
+# El orden de esta lista es el orden en que salen las asignaturas en la web.
 # "codigo" tiene que coincidir con el nombre de la carpeta dentro de _practicas.
-# "nombre" es lo único que se ve en la web: cámbialo cuando quieras.
+# "nombre" y "descripcion" son lo único que se ve: cámbialos cuando quieras.
 
 - codigo: ASO
   nombre: Administración de Sistemas Operativos
+  descripcion: Instalación, particionado, usuarios, permisos y automatización en Linux y Windows.
 
 - codigo: Servicios
   nombre: Servicios de Red e Internet
+  descripcion: DNS, DHCP, correo, web y compartición de ficheros.
 
 - codigo: ImpAppWeb
   nombre: Implantación de Aplicaciones Web
+  descripcion: Despliegue de servidores web, gestores de contenidos y aplicaciones.
 
 - codigo: AdmBBDD
   nombre: Administración de Bases de Datos
+  descripcion: Instalación de gestores, usuarios, copias de seguridad y rendimiento.
 
 - codigo: SAD
   nombre: Seguridad y Alta Disponibilidad
+  descripcion: Cortafuegos, cifrado, copias de seguridad y servicios redundantes.
 
 - codigo: OptInfrVirt
   nombre: "Optativa: Infraestructuras Virtuales"
+  descripcion: Virtualización, contenedores y gestión de infraestructura.
 
 - codigo: ProyIntMod
   nombre: Proyecto Intermodular
+  descripcion: Proyecto que integra el trabajo del resto de módulos del curso.
 
 - codigo: Ingles
   nombre: Inglés
+  descripcion: Inglés técnico aplicado a la administración de sistemas.

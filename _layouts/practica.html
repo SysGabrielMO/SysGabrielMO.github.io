@@ -2,16 +2,29 @@
 layout: default
 ---
 {% assign asig = site.data.asignaturas | where: "codigo", page.asignatura | first %}
-<article class="practica">
 
-  <p class="volver"><a href="{{ '/' | relative_url }}">Volver al índice</a></p>
+<header class="cabecera-practica">
+  <div class="contenedor estrecho">
+    <p class="miga">
+      <a href="{{ '/asignaturas/' | relative_url }}#{{ page.asignatura }}">{% if asig %}{{ asig.nombre }}{% else %}{{ page.asignatura }}{% endif %}</a>
+    </p>
+    <h1>{{ page.title }}</h1>
+    {% if page.resumen %}<p class="entradilla-practica">{{ page.resumen }}</p>{% endif %}
+    <p class="ficha">
+      {% if page.date %}<time datetime="{{ page.date | date: '%Y-%m-%d' }}">Actualizada el {{ page.date | date: "%d/%m/%Y" }}</time>{% endif %}
+    </p>
+    {% if page.tags %}
+      <ul class="etiquetas">
+        {% for t in page.tags %}<li>{{ t }}</li>{% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+</header>
 
-  <h1>{{ page.title }}</h1>
-  <p class="ficha">
-    <span>{% if asig %}{{ asig.nombre }}{% else %}{{ page.asignatura }}{% endif %}</span>
-    {% if page.date %}<time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%d/%m/%Y" }}</time>{% endif %}
-  </p>
+<main class="contenedor estrecho">
+  <article class="practica">
+    {{ content }}
+  </article>
 
-  {{ content }}
-
-</article>
+  <p class="volver"><a href="{{ '/asignaturas/' | relative_url }}#{{ page.asignatura }}">Volver a {% if asig %}{{ asig.nombre }}{% else %}{{ page.asignatura }}{% endif %}</a></p>
+</main>

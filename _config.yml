@@ -1,16 +1,17 @@
-title: Cuaderno de prácticas
-subtitulo: Segundo curso de ASIR — I.E.S. Gonzalo Nazareno
-autor: Gabriel
+title: Gabriel Merencio
+titulo_sitio: Cuaderno de prácticas
+descripcion: Prácticas de segundo de ASIR — sistemas, redes, bases de datos y aplicaciones web.
+autor: Gabriel Merencio Ortega
+centro: I.E.S. Gonzalo Nazareno
 curso: "2026 / 2027"
+github_usuario: SysGabrielMO
 url: "https://SysGabrielMO.github.io"
 
-# Cada fichero de _practicas se publica como una página propia.
 collections:
   practicas:
     output: true
     permalink: /practicas/:path/
 
-# Así no hace falta repetir "layout" en cada práctica.
 defaults:
   - scope:
       path: ""
@@ -24,3 +25,4 @@ kramdown:
 
 exclude:
   - LEEME.md
+  - README.md

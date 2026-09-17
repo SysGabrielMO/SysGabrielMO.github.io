@@ -2,31 +2,72 @@
 layout: default
 ---
 
-<section class="entradilla">
-  <p>Aquí voy recogiendo las prácticas que hago en clase: objetivo, desarrollo y
-  resultado de cada una. Hay {{ site.practicas | size }} publicadas.</p>
-</section>
+<header class="portada">
+  <div class="contenedor">
+    <h1>{{ site.titulo_sitio }}</h1>
+    <p class="portada-texto">{{ site.descripcion }}</p>
+    <dl class="portada-datos">
+      <div>
+        <dt>Prácticas publicadas</dt>
+        <dd>{{ site.practicas | size }}</dd>
+      </div>
+      <div>
+        <dt>Asignaturas</dt>
+        <dd>{{ site.data.asignaturas | size }}</dd>
+      </div>
+      <div>
+        <dt>Curso</dt>
+        <dd>{{ site.curso }}</dd>
+      </div>
+    </dl>
+  </div>
+</header>
 
-{% assign publicadas = 0 %}
+<main class="contenedor">
 
-{% for a in site.data.asignaturas %}
-  {% assign practicas = site.practicas | where: "asignatura", a.codigo | sort: "date" %}
-  {% if practicas.size > 0 %}
-    {% assign publicadas = publicadas | plus: practicas.size %}
-    <section class="asignatura-bloque">
-      <h2>{{ a.nombre }}</h2>
-      <ol class="lista-practicas">
-        {% for p in practicas %}
-          <li>
-            <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
-            {% if p.date %}<time datetime="{{ p.date | date: '%Y-%m-%d' }}">{{ p.date | date: "%d/%m/%Y" }}</time>{% endif %}
+  <section class="seccion">
+    <div class="seccion-titulo">
+      <h2>Por asignatura</h2>
+      <a href="{{ '/asignaturas/' | relative_url }}">Ver todas</a>
+    </div>
+
+    <ul class="rejilla">
+      {% for a in site.data.asignaturas %}
+        {% assign practicas = site.practicas | where: "asignatura", a.codigo %}
+        <li class="tarjeta-asignatura">
+          <a href="{{ '/asignaturas/' | relative_url }}#{{ a.codigo }}">
+            <h3>{{ a.nombre }}</h3>
+            <p>{{ a.descripcion }}</p>
+            <p class="cuenta">
+              {% if practicas.size == 0 %}Sin prácticas todavía
+              {% elsif practicas.size == 1 %}1 práctica
+              {% else %}{{ practicas.size }} prácticas{% endif %}
+            </p>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  {% assign recientes = site.practicas | sort: "date" | reverse %}
+  {% if recientes.size > 0 %}
+    <section class="seccion" id="recientes">
+      <div class="seccion-titulo">
+        <h2>Últimas prácticas</h2>
+      </div>
+
+      <ul class="lista-fichas">
+        {% for p in recientes limit: 6 %}
+          {% assign asig = site.data.asignaturas | where: "codigo", p.asignatura | first %}
+          <li class="ficha-practica">
+            <p class="ficha-asignatura">{% if asig %}{{ asig.nombre }}{% else %}{{ p.asignatura }}{% endif %}</p>
+            <h3><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
+            {% if p.resumen %}<p class="ficha-resumen">{{ p.resumen }}</p>{% endif %}
+            {% if p.date %}<p class="ficha-fecha"><time datetime="{{ p.date | date: '%Y-%m-%d' }}">{{ p.date | date: "%d/%m/%Y" }}</time></p>{% endif %}
           </li>
         {% endfor %}
-      </ol>
+      </ul>
     </section>
   {% endif %}
-{% endfor %}
 
-{% if publicadas == 0 %}
-  <p class="vacio">Todavía no hay ninguna práctica publicada.</p>
-{% endif %}
+</main>
