@@ -1,0 +1,32 @@
+---
+layout: default
+---
+
+<section class="entradilla">
+  <p>Aquí voy recogiendo las prácticas que hago en clase: objetivo, desarrollo y
+  resultado de cada una. Hay {{ site.practicas | size }} publicadas.</p>
+</section>
+
+{% assign publicadas = 0 %}
+
+{% for a in site.data.asignaturas %}
+  {% assign practicas = site.practicas | where: "asignatura", a.codigo | sort: "date" %}
+  {% if practicas.size > 0 %}
+    {% assign publicadas = publicadas | plus: practicas.size %}
+    <section class="asignatura-bloque">
+      <h2>{{ a.nombre }}</h2>
+      <ol class="lista-practicas">
+        {% for p in practicas %}
+          <li>
+            <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+            {% if p.date %}<time datetime="{{ p.date | date: '%Y-%m-%d' }}">{{ p.date | date: "%d/%m/%Y" }}</time>{% endif %}
+          </li>
+        {% endfor %}
+      </ol>
+    </section>
+  {% endif %}
+{% endfor %}
+
+{% if publicadas == 0 %}
+  <p class="vacio">Todavía no hay ninguna práctica publicada.</p>
+{% endif %}

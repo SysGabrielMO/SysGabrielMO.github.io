@@ -1,0 +1,255 @@
+:root {
+  --papel: #eef0ec;
+  --tinta: #16211d;
+  --suave: #5d6b63;
+  --azul: #143c63;
+  --azul-claro: #3d79b8;
+  --linea: #c8cec7;
+  --codigo: #e4e8e3;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --papel: #151a19;
+    --tinta: #e6eae6;
+    --suave: #9aa8a0;
+    --azul: #0f2c48;
+    --azul-claro: #79aedd;
+    --linea: #2d3634;
+    --codigo: #1e2523;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+.contenedor {
+  width: 100%;
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ---------- Cabecera ---------- */
+
+.cabecera {
+  background-color: var(--azul);
+  background-image:
+    repeating-linear-gradient(to right, rgba(255,255,255,.11) 0 1px, transparent 1px 2.5rem),
+    repeating-linear-gradient(to bottom, rgba(255,255,255,.11) 0 1px, transparent 1px 2.5rem);
+  color: #fff;
+  padding: 3.5rem 0 3rem;
+  margin-bottom: 3rem;
+}
+
+.marca {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.marca:hover { text-decoration: underline; text-underline-offset: 5px; }
+
+.marca-sub {
+  margin: 0.5rem 0 0;
+  color: rgba(255,255,255,.78);
+  font-size: 0.95rem;
+}
+
+/* ---------- Índice ---------- */
+
+.entradilla {
+  margin-bottom: 3rem;
+  color: var(--suave);
+  max-width: 34rem;
+}
+
+.entradilla p { margin: 0; }
+
+.asignatura-bloque { margin-bottom: 3rem; }
+
+.asignatura-bloque h2 {
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--linea);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--suave);
+}
+
+.lista-practicas {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: practica;
+}
+
+.lista-practicas li {
+  counter-increment: practica;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.55rem 0;
+}
+
+.lista-practicas li::before {
+  content: counter(practica, decimal-leading-zero);
+  flex: 0 0 1.75rem;
+  color: var(--azul-claro);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.85rem;
+}
+
+.lista-practicas a {
+  color: var(--tinta);
+  text-decoration: none;
+  border-bottom: 1px solid var(--linea);
+}
+
+.lista-practicas a:hover { border-bottom-color: var(--azul-claro); }
+
+.lista-practicas time {
+  margin-left: auto;
+  flex: none;
+  color: var(--suave);
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.vacio { color: var(--suave); }
+
+/* ---------- Página de una práctica ---------- */
+
+.volver { margin: 0 0 2rem; font-size: 0.9rem; }
+.volver a { color: var(--suave); }
+
+.practica h1 {
+  margin: 0 0 0.6rem;
+  font-size: 1.85rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.ficha {
+  margin: 0 0 2.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--linea);
+  color: var(--suave);
+  font-size: 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.practica h2 {
+  margin: 2.5rem 0 0.75rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.practica h3 {
+  margin: 2rem 0 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.practica p, .practica li { max-width: 38rem; }
+
+.practica img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1.75rem 0;
+  padding: 0.75rem;
+  background: #fff;
+  border: 1px solid var(--linea);
+}
+
+.practica blockquote {
+  margin: 1.5rem 0;
+  padding-left: 1.25rem;
+  border-left: 3px solid var(--azul-claro);
+  color: var(--suave);
+}
+
+.practica table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+
+.practica th, .practica td {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--linea);
+}
+
+/* ---------- Enlaces y código ---------- */
+
+a { color: var(--azul-claro); }
+
+code, pre {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.875em;
+}
+
+code {
+  background: var(--codigo);
+  padding: 0.12em 0.35em;
+  border-radius: 3px;
+}
+
+pre {
+  background: var(--codigo);
+  padding: 1rem 1.15rem;
+  overflow-x: auto;
+  border-left: 3px solid var(--azul-claro);
+  line-height: 1.55;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+/* ---------- Pie ---------- */
+
+.pie {
+  margin-top: 5rem;
+  padding: 2rem 0 3rem;
+  border-top: 1px solid var(--linea);
+  color: var(--suave);
+  font-size: 0.875rem;
+}
+
+.pie p { margin: 0; }
+
+/* ---------- Accesibilidad y móvil ---------- */
+
+:focus-visible {
+  outline: 2px solid var(--azul-claro);
+  outline-offset: 3px;
+}
+
+@media (max-width: 34rem) {
+  .cabecera { padding: 2.5rem 0 2rem; margin-bottom: 2rem; }
+  .marca { font-size: 1.6rem; }
+  .lista-practicas li { flex-wrap: wrap; }
+  .lista-practicas time { margin-left: 2.5rem; }
+}
