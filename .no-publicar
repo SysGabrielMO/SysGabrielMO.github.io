@@ -1,0 +1,6 @@
+# Ficheros de ~/Documentos/practicas que NO se publican en el blog.
+# Una ruta por linea, relativa a ~/Documentos/practicas.
+# La tarea "Publicar practicas en el blog" salta los que aparezcan aqui.
+
+ASO/memoria-particionado-debian13.md
+ProyIntMod/vm-debian13-kvm.md
