@@ -1,7 +1,7 @@
 ---
 title: "Compilación de ripgrep con Rust"
 asignatura: ASO
-date: 2026-09-26
+date: 2026-10-03
 resumen: "Compilo e instalo ripgrep 15.2.0 desde el código fuente en Debian 13 usando la cadena de herramientas de Rust: rustup para instalarla, cargo build --release para compilar y cargo test para pasar los tests, dejando el binario, el manual y el autocompletado en /opt/ripgrep. Voy comparando cada paso con su equivalente en un proyecto con configure y Makefile, y acabo con una desinstalación limpia comprobando que apt y dpkg nunca controlan el programa."
 tags:
   - Rust
@@ -194,10 +194,10 @@ gabriel@debian-ansible:~/compilacion/ripgrep-15.2.0$ find /opt/ripgrep -type f
 gabriel@debian-ansible:~/compilacion/ripgrep-15.2.0$ ls -lh /opt/ripgrep/bin/rg
 -rwxr-xr-x 1 root root 5,1M sep 26 12:28 /opt/ripgrep/bin/rg
 gabriel@debian-ansible:~/compilacion/ripgrep-15.2.0$ ldd /opt/ripgrep/bin/rg
-	linux-vdso.so.1 (0x00007f9b3fa34000)
-	libgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f9b3f9fd000)
-	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f9b3f20c000)
-	/lib64/ld-linux-x86-64.so.2 (0x00007f9b3fa36000)
+    linux-vdso.so.1 (0x00007f9b3fa34000)
+    libgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f9b3f9fd000)
+    libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f9b3f20c000)
+    /lib64/ld-linux-x86-64.so.2 (0x00007f9b3fa36000)
 ```
 
 ---
