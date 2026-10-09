@@ -88,7 +88,7 @@ sudo qemu-img info /var/lib/libvirt/images/srv-postgresql.qcow2 | grep "file for
 ### 2.3. Crear las snapshots
 
 ```bash
-asudo virsh snapshot-create-as srv-oracle --name antes-bridge --description "Antes de pasar a br0"
+sudo virsh snapshot-create-as srv-oracle --name antes-bridge --description "Antes de pasar a br0"
 sudo virsh snapshot-create-as srv-postgresql --name antes-bridge --description "Antes de pasar a br0"
 ```
 
