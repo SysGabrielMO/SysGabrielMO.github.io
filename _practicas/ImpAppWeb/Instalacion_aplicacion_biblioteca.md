@@ -93,7 +93,7 @@ Aparecen las 10 tablas de la aplicación: `autor`, `configuracion`, `detalle_per
 
 ## 2. Crear el virtual host
 
-Se accederá con el nombre `biblioteca.gabrielmerencioortega.org` y los ficheros de la aplicación se ubicarán en el directorio `/var/www/biblioteca`, que será el DocumentRoot del sitio.
+Se accederá con el nombre `biblioteca.gabriel.org` y los ficheros de la aplicación se ubicarán en el directorio `/var/www/biblioteca`, que será el DocumentRoot del sitio.
 
 ### 2.1. Copiar los ficheros de la aplicación
 
@@ -136,7 +136,7 @@ sudo nano /etc/apache2/sites-available/biblioteca.conf
     DocumentRoot /var/www/biblioteca
 
     ErrorLog ${APACHE_LOG_DIR}/biblioteca_error.log
-    CustomLog ${APACHE_LOG_DIR}/biblioteca_access.log combined
+    CustomLog ${APACHE_LOG_DIR}/access_biblioteca.log combined
 </VirtualHost>
 ```
 
@@ -196,7 +196,7 @@ const charset = "charset=utf8";
 
 | Constante  | Valor                                          | Qué es                                                                                                  |
 | ---------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `base_url` | `http://biblioteca.gabrielmerencioortega.org/` | URL con la que se accede a la aplicación; la usa para construir los enlaces y cargar CSS, JS e imágenes |
+| `base_url` | `http://biblioteca.gabriel.org/` | URL con la que se accede a la aplicación; la usa para construir los enlaces y cargar CSS, JS e imágenes |
 | `host`     | `localhost`                                    | Servidor donde está la base de datos (la misma máquina)                                                 |
 | `user`     | `biblioteca`                                   | Usuario creado en el punto 1                                                                            |
 | `pass`     | `Biblio_2026`                                  | Contraseña de ese usuario                                                                               |
@@ -204,7 +204,6 @@ const charset = "charset=utf8";
 
 La `base_url` debe terminar en `/`, porque la aplicación le concatena directamente las rutas (`Assets/...`, `Usuarios/...`). Sin la barra, los enlaces quedarían mal formados.
 
-Mostrar imagen
 
 ### Comprobación
 
@@ -309,9 +308,9 @@ sudo systemctl status apache2
 
 ## 5. Acceso a la aplicación
 
-El nombre `biblioteca.gabrielmerencioortega.org` no existe en ningún DNS, así que el cliente no sabe a qué IP corresponde. Para resolverlo se añade una entrada en el fichero `hosts` del cliente, que el sistema consulta antes que el DNS.
+El nombre `biblioteca.gabriel.org` no existe en ningún DNS, así que el cliente no sabe a qué IP corresponde. Para resolverlo se añade una entrada en el fichero `hosts` del cliente, que el sistema consulta antes que el DNS.
 
-### 5.2. Resolución de nombres en el cliente
+### 5.1. Resolución de nombres en el cliente
 
 En el cliente (el host anfitrión) editamos el fichero `hosts`:
 
@@ -325,7 +324,7 @@ Y añadimos una línea con la IP del servidor y el nombre del sitio:
 
 
 
-### 5.3. Acceso a la aplicación
+### 5.2. Acceso a la aplicación
 
 Desde el navegador del cliente entramos en:
 
@@ -349,7 +348,7 @@ Para comprobar que la aplicación lee correctamente de la base de datos y que el
 
 
 
-### 5.4. Logs del sitio
+### 5.3. Logs del sitio
 
 En el servidor se pueden ver las peticiones que llegan al virtual host:
 
@@ -417,7 +416,6 @@ grep "^memory_limit" /etc/php/8.4/apache2/php.ini
 
 Creamos un `info.php` en el DocumentRoot de la aplicación:
 
-bash
 
 ```bash
 printf "<?php\nphpinfo();\n?>\n" | sudo tee /var/www/biblioteca/info.php
